@@ -20,3 +20,4 @@ def postToDoListData():
     inputData = request.get_json()
     data.append(inputData)
     return jsonify({'tasks' : data})
+    
