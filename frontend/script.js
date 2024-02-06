@@ -22,15 +22,19 @@ async function sendData(taskValue) {
         },
         body: JSON.stringify({tasks: taskValue})
     })
-    const result = await response.json();
-    console.log("successful:", result);
+    // const result = await response.json();
+    // console.log("successful:", result);
 }
-
 async function getData(){
     const response = await fetch('http://127.0.0.1:5000/getData');
     const data = await response.json();
-    alert(data['tasks'])
-    
+    for(var i = 0; i < data.length; i++)
+    {
+        var obj = data[i];
+        const li = document.createElement("li");
+        li.textContent = data[i].tasks;
+        ul.appendChild(li);
+    }
 }
 
 window.addEventListener("onload", getData())
